@@ -120,6 +120,15 @@ void MainGame::initLevel() {
 		1, levels[currentLevel]->getWidth() - 2);
 	std::uniform_int_distribution<int>randPosY(
 		1, levels[currentLevel]->getHeight() - 2);
+	int numZombies = 5;
+
+	for (size_t i = 0; i < numZombies; i++)
+	{
+		zombies.push_back(new Zombie());
+		glm::vec2 pos(randPosX(randomEngine) * TILE_WIDTH,
+			randPosY(randomEngine) * TILE_WIDTH);
+		zombies.back()->init(pos);
+	}
 
 	for (size_t i = 0; i < levels[currentLevel]->getNumHumans(); i++)
 	{
@@ -149,6 +158,10 @@ void MainGame::draw() {
 	{
 		humans[i]->draw(spriteBatch);
 	}
+	for (size_t i = 0; i < zombies.size(); i++)
+	{
+		zombies[i]->draw(spriteBatch);
+	}
 	for (size_t i = 0; i < bullets.size(); i++)
 	{
 		bullets[i]->draw(spriteBatch);
@@ -167,6 +180,10 @@ void MainGame::run() {
 
 void MainGame::updateElements() {
 	player->update(levels[currentLevel]->getLevelData(), humans, zombies);
+	for (size_t i = 0; i < zombies.size(); i++)
+	{
+		zombies[i]->update(levels[currentLevel]->getLevelData(), humans, zombies);
+	}
 	for (size_t i = 0; i < humans.size(); i++)
 	{
 		humans[i]->update(levels[currentLevel]->getLevelData(),humans,zombies);
