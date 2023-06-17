@@ -1,10 +1,11 @@
 #include "ScreenList.h"
 #include "IGameScreen.h"
 
-ScreenList::ScreenList(Game* game)
+ScreenList::ScreenList(Game* game) 
 {
     this->game = game;
 }
+
 
 void ScreenList::setScreen(int nextScreen)
 {
@@ -56,3 +57,9 @@ IGameScreen* ScreenList::movePrevious()
     }
     return getCurrent();
 }
+
+
+
+
+
+

@@ -26,10 +26,10 @@ public:
 	virtual void initGUI() = 0;
 	virtual int getNextScreen() const = 0;
 	virtual int getPreviousScreen() const = 0;
-	ScreenState getState() const {
+	ScreenState getState()const {
 		return currentState;
 	}
-	int getIndex() const {
+	int getIndex()const {
 		return screenIndex;
 	}
 	void setRunning() {
@@ -38,4 +38,6 @@ public:
 	void setParent(Game* game) {
 		this->game = game;
 	}
+
 };
+

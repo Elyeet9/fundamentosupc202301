@@ -34,6 +34,8 @@ bool Game::initSystems()
     return true;
 }
 
+
+
 void Game::run()
 {
     if (!init())return;
@@ -94,3 +96,11 @@ void Game::onSDLEvent(SDL_Event& event)
 Game::~Game()
 {
 }
+
+
+
+
+
+
+
+

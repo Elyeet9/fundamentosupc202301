@@ -7,7 +7,7 @@ public:
 	App();
 	~App();
 	virtual void onInit() override;
-	virtual void addScreens() override;
+	virtual void addScreens()override;
 	virtual void onExit() override;
 private:
 
