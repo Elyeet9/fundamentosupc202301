@@ -11,3 +11,7 @@
 * Nuevo input en MainGame::handleInput() para la tecla "c": imprimir el total de humanos y zombies en el nivel.
 
 ![image](https://github.com/Elyeet9/fundamentosupc202301/assets/63426823/a11780eb-a0d6-40f4-a220-6381a7186967)
+
+* Los valores se actualizan en MainGame::updateElements()
+
+![image](https://github.com/Elyeet9/fundamentosupc202301/assets/63426823/89bd899b-f9fb-4a7b-92f5-08d01f34de67)
