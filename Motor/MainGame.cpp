@@ -172,7 +172,7 @@ void MainGame::draw() {
 	for (size_t i = 0; i < zombies.size(); i++)
 	{
 		zombies[i]->draw(spriteBatch);
-	}	
+	}
 	spriteBatch.end();
 	spriteBatch.renderBatch();
 	drawHud();
