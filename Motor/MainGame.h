@@ -23,6 +23,8 @@ class MainGame
 private:
 	int width;
 	int height;
+	int countHumans = 0;
+	int countZombies = 0;
 	SpriteFont* spriteFont;
 	SpriteBatch spriteBatch;
 	SpriteBatch hudBatch;

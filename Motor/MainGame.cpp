@@ -63,6 +63,9 @@ void MainGame::handleInput()
 		//cout << "CLICK IZQUIERDO" << endl;
 		createBullet();
 	}
+	if (inputManager.isKeyPressed(SDLK_c)) {
+		cout << "\nHumans: " << this->countHumans << "\nZombies: " << this->countZombies;
+	}
 
 	if (inputManager.isKeyPressed(SDL_BUTTON_RIGHT)) {
 		//cout << "CLICK DERECHo" << endl;
@@ -124,6 +127,7 @@ void MainGame::initLevel() {
 
 	for (size_t i = 0; i < levels[currentLevel]->getNumHumans(); i++)
 	{
+		this->countHumans++;
 		humans.push_back(new Human());
 		glm::vec2 pos(randPosX(randomEngine) * TILE_WIDTH,
 			randPosY(randomEngine) * TILE_WIDTH);
@@ -135,6 +139,7 @@ void MainGame::initLevel() {
 
 	for (size_t i = 0; i < zombiePosition.size(); i++)
 	{
+		this->countZombies++;
 		zombies.push_back(new Zombie());
 		zombies.back()->init(1.3f, zombiePosition[i]);
 	}
@@ -167,7 +172,7 @@ void MainGame::draw() {
 	for (size_t i = 0; i < zombies.size(); i++)
 	{
 		zombies[i]->draw(spriteBatch);
-	}
+	}	
 	spriteBatch.end();
 	spriteBatch.renderBatch();
 	drawHud();
@@ -215,6 +220,8 @@ void MainGame::updateElements() {
 				delete humans[j];
 				humans[j] = humans.back();
 				humans.pop_back();
+				this->countHumans--;
+				this->countZombies++;
 			}
 		}
 	}
